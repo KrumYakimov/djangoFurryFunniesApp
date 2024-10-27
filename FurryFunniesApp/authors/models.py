@@ -10,7 +10,6 @@ class Author(models.Model):
     first_name = models.CharField(
         max_length=MAX_FIRST_NAME_LENGTH,
         validators=[LettersOnlyValidator()],
-        help_text="Enter your first name (letters only).",
         blank=False,
         null=False,
     )
@@ -18,7 +17,6 @@ class Author(models.Model):
     last_name = models.CharField(
         max_length=MAX_LAST_NAME_LENGTH,
         validators=[LettersOnlyValidator()],
-        help_text="Enter your last name (letters only).",
         blank=False,
         null=False,
     )
@@ -26,7 +24,6 @@ class Author(models.Model):
     passcode = models.CharField(
         max_length=MAX_PASSCODE_LENGTH,
         validators=[PasscodeValidator()],
-        help_text="Your passcode must be a combination of 6 digits.",
         blank=False,
         null=False,
     )

@@ -17,6 +17,7 @@ class Post(models.Model):
     )
 
     image_url = models.URLField(
+        verbose_name="Post Image URL",
         help_text="Share your funniest furry photo URL!",
         null=False,
         blank=False,

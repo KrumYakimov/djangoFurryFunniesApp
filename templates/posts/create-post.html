@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<main>
+    <!-- Add Post Form -->
+    <section id="create">
+        <div class="form">
+            <h2>New Post</h2>
+
+            <form class="create-form" action="" method="post">
+                {% csrf_token %}
+
+                <!-- Title Field -->
+                <div>
+                    <label for="{{ form.title.id_for_label }}">Title:</label>
+                    {{ form.title }}
+                    {% if form.title.errors %}
+                        <div class="error-message">
+                            {% for error in form.title.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <!-- Post Image URL Field -->
+                <div>
+                    <label for="{{ form.image_url.id_for_label }}">Post Image URL:</label>
+                    <div class="helptext">
+                        Share your funniest furry photo URL!
+                    </div>
+                    {{ form.image_url }}
+                    {% if form.image_url.errors %}
+                        <div class="error-message">
+                            {% for error in form.image_url.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <!-- Content Field -->
+                <div>
+                    <label for="{{ form.content.id_for_label }}">Content:</label>
+                    {{ form.content }}
+                    {% if form.content.errors %}
+                        <div class="error-message">
+                            {% for error in form.content.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit">Publish</button>
+            </form>
+        </div>
+    </section>
+</main>
+{% endblock %}
